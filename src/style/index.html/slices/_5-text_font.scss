@@ -1,0 +1,267 @@
+/*   Slice 5 / 8		Text-Decoration & Font & Writing Modes Properties Properties
+________________________________
+::::::::::::::::::::::::
+Includes Properties
+::::::::::::::::::::::::
+________________________________
+Text
+	hanging-punctuation
+	hyphens
+	letter-spacing
+	line-break
+	line-height
+	overflow-wrap
+	tab-size
+	text-align
+	text-align-last
+	text-combine-upright
+	text-indent
+	text-justify
+	text-transform
+	white-space
+	word-break
+	word-spacing
+	word-wrap
+________________________________
+Text-Decoration	
+	Text Decoration
+	text-decoration	
+	text-decoration-color
+	text-decoration-line
+	text-decoration-style
+	text-shadow
+	text-underline-position
+________________________________
+Font
+	@font-face{}
+	@font-feature-values{}
+	font
+	font-family
+	font-feature-settings
+	font-kerning
+	font-language-override
+	font-size
+	font-size-adjust
+	font-stretch
+	font-style
+	font-synthesis
+	font-variant
+	font-variant-alternates
+	font-variant-caps
+	font-variant-east-asian
+	font-variant-ligatures
+	font-variant-numeric
+	font-variant-position
+	font-weight	
+________________________________
+Writing Modes
+	direction
+	text-orientation
+	text-combine-upright
+	unicode-bidi
+	user-select
+	writing-mode
+________________________________
+*/
+/*TEXT SIZE=====================================================================*/
+$bxl: 7vw;
+
+$xxxl: 48rem; /*h1*/
+
+$xxl: 26rem; /*h2*/
+
+$xl: 24rem; /*h3*/
+
+$larg: 21rem; /*h4*/
+
+$med: 18rem; /*h5*/
+
+$smal: 17rem; /*h6*/
+
+$xs: 12rem;
+
+$nano: 1.5rem;
+
+/*@FONT-FACE===================================================================*/
+/*@font-face {
+    font-family: 'scratch';
+    src: 
+    	url('../font/san_diego_font/san_diego_font.woff2') format('woff2'),
+        url('../font/san_diego_font/san_diego_font.woff') format('woff'),
+        url('../font/san_diego_font/san_diego_font.svg#san_diego_fontmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a, h1, h2, h3, h4, span, input
+{ 	font-family: scratch; }
+*/
+/*LETTER-SPACING================================================================*/
+.t_lsp,
+body {
+  letter-spacing: $nano;
+}
+
+.t_lsp-larg {
+  letter-spacing: 2rem;
+  font-size: $larg;
+}
+
+/*::::::::::::::::::::::::
+MOLECULES
+::::::::::::::::::::::::*/
+.t_lsp_cntr {
+  letter-spacing: $nano;
+  text-align: center
+}
+
+/*TEXT-TRANSFORM================================================================*/
+.t_upcas {
+  text-transform: uppercase;
+}
+
+/*::::::::::::::::::::::::
+MOLECULES
+::::::::::::::::::::::::*/
+.t_upcas_cntr {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/*LINE-HEIGHT===================================================================*/
+.t_linehg_m {
+  line-height: 1.45;
+}
+
+/*TEXT-ALIGN====================================================================*/
+.t_str {
+  text-align: left;
+}
+
+.t_cntr {
+  text-align: center;
+}
+
+.t_end {
+  text-align: right;
+}
+
+/*TEXT-DECORATION===============================================================*/
+a {
+  text-decoration: none;
+}
+
+.t_unl {
+  text-decoration: underline;
+}
+
+/*FONT-SIZE=====================================================================*/
+.t_bxl /*text - just huge*/
+{
+  font-size: $bxl;
+}
+
+h1, .t_xxxl /*text - extra extra extra large*/
+{
+  font-size: $xxxl;
+}
+
+h2, .t_xxl /*text - extra extra large*/
+{
+  font-size: $xxl;
+}
+
+h3, .t_xl /*text - extra large*/
+{
+  font-size: $xl;
+}
+
+h4, .t_larg /*text - large*/
+{
+  font-size: $larg;
+}
+
+h5, .t_medium /*text - medium*/
+{
+  font-size: $med;
+}
+
+h6, .t_smal /*text - samll*/
+{
+  font-size: $smal;
+}
+
+.t_xs /*text - exta small*/
+{
+  font-size: $xs;
+}
+
+.t_zero /*text - zero*/
+{
+  font-size: 0;
+}
+
+/*::::::::::::::::::::::::
+MOLECULES
+::::::::::::::::::::::::*/
+.t_sml_itlc {
+  font-size: $smal;
+  font-style: italic;
+}
+
+/*++++++++++++++++++++++++++++++++++++*/
+.t_larg_bldr {
+  font-size: $larg;
+  font-weight: bolder;
+}
+
+/*++++++++++++++++++++++++++++++++++++*/
+.t_xl_end {
+  font-size: $xl;
+  text-align: end;
+}
+
+.t_xxxl_end {
+  font-size: $xxxl;
+  text-align: end;
+}
+
+/*++++++++++++++++++++++++++++++++++++*/
+.t_med_cntr {
+  font-size: $med;
+  text-align: center;
+}
+
+.t_larg_cntr {
+  font-size: $larg;
+  text-align: center;
+}
+
+.t_xxl_cntr {
+  font-size: $xxl;
+  text-align: center;
+}
+
+.t_xl_cntr {
+  font-size: $xl;
+  text-align: center;
+}
+
+/*FONT-STYLE================================================================*/
+h1, h2, h3, h4, h5, h6 {
+  font-style: normal;
+}
+
+.t_italic {
+  font-style: italic;
+}
+
+/*FONT-WEIGHT================================================================*/
+h1, h2, h3, h4, h6 {
+  font-weight: normal;
+}
+
+.t_bolder {
+  font-weight: bolder;
+}
+
