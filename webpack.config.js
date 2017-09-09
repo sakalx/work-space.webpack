@@ -104,7 +104,7 @@ const
       inject: 'body',
       hash: true,                       // для кеширования скриптов
       filename: 'index.html',
-      chunks: ['index', 'commons', 'vendor', 'webpack'],
+      chunks: ['index', 'share', 'glob', 'commons', 'vendor', 'webpack'],
       //excludeChunks: ['second']       // или указать какой кусок не нужно
     });
 
@@ -229,8 +229,10 @@ const
       devtool: sourceMap,                            //выбираем тип карт
 
       entry: {
-        vendor: ['jquery', 'react', 'react-dom'],   //бандел c библиотеками
-        index: SRC_DIR + '/js/index.js',            //бандел для index.html
+        vendor: ['jquery', 'react', 'react-dom'],   //бандел c модулями библиотек
+        glob: SRC_DIR + '/js/glob/glob.js',         //бандел c модулями которые повторяються ввезде
+        share: SRC_DIR + '/js/share/share.js',      //бандел с модулями которые иногда повторяються
+        index: SRC_DIR + '/js/index.html/index.js',      //бандел с модулями для конкретной страници
       },
 
       output: {
