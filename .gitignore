@@ -1,6 +1,8 @@
 ﻿
-node_modules/
+/node_modules
 
-.idea
+/npm-debug.log
 
-.git
+/.idea
+
+/dist
