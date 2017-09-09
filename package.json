@@ -20,7 +20,8 @@
   },
   "scripts": {
     "dev": "webpack-dev-server",
-    "prod": "cross-env NODE_ENV=production webpack"
+    "prod": "cross-env NODE_ENV=production webpack",
+    "stats": "webpack --profile --json > stats.json"
   },
   "author": "SakalS",
   "license": "ISC",

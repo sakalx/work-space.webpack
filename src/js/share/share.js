@@ -4,13 +4,10 @@
  Includes
  ::::::::::::::::::::::::
  */
-
-
 // globImport style
 // import 'root/style/share/share.scss';
+// Import View jsx
+import './components/jsx/share.vie.jsx';
 
-// Import jsx
-// import ftom '../components/jsx/share.vie.jsx'
-
-// Import es6
-// import ftom '../components/controler/share.controler.js'
+// Import Controler es6
+// import './components/controler/share.controler.js'

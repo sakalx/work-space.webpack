@@ -1,5 +1,7 @@
-import Layout from './components/Layout';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const app = document.getElementById('app');
-ReactDOM.render(<Layout/>, app);
-//cds
+import {Header} from './components.jsx/Header.jsx';
+
+const root = document.getElementById('root');
+ReactDOM.render(<Header/>, root);

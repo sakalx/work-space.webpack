@@ -9,8 +9,9 @@
 // globImport style
 // import 'root/style/index/index.scss';
 
-// Import jsx
-// import ftom '../components/jsx/index.vie.jsx'
+// Import View jsx
+//import './components/jsx/index.view.jsx'
 
-// Import es6
-// import ftom '../components/controler/index.controler.js'
+// Import Controler es6
+// import './components/controler/index.controler.js'
+console.log('VIP Module');
