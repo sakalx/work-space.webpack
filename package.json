@@ -24,6 +24,7 @@
     "svg:minify": "gulp svg-min",
     "svg:sprites": "gulp svg-sprite",
     "dev": "webpack-dev-server",
+    "dev:ownServer": "webpack -d --watch",
     "prod": "cross-env NODE_ENV=production webpack",
     "stats": "webpack --profile --json > stats.json"
   },
@@ -67,7 +68,6 @@
     "react-dom": "^15.6.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
-    "svg-sprite-loader": "^3.2.5",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
