@@ -4,7 +4,8 @@
  Includes
  ::::::::::::::::::::::::
  */
-
+//import SVG
+import 'root/svg/symbol/svg/sprite.symbol.svg';
 
 // globImport style
 // import 'root/style/index/index.scss';
