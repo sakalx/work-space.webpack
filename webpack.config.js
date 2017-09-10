@@ -62,7 +62,7 @@ const
 //магия кеширования отдельно: наши модули(commons) + библиотеки(vendor) + настройки webpack
 const
     commonsChunk = new webpack.optimize.CommonsChunkPlugin({
-      name: ['commons', 'vendor', 'webpack'],
+      name: ['glob', 'vendor', 'webpack'],
     });
 
 
@@ -104,8 +104,7 @@ const
       inject: 'body',
       hash: true,                       // для кеширования скриптов
       filename: 'index.html',
-      chunks: ['index', 'share', 'glob', 'commons', 'vendor', 'webpack'],
-      //excludeChunks: ['second']       // или указать какой кусок не нужно
+      chunks: ['index', 'share', 'glob', 'vendor', 'webpack'],
     });
 
 
@@ -182,6 +181,17 @@ const
         },
       }];
 
+//SVG Config inline svg sprite
+const
+    svgConfig = [
+      {
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'svg/',
+        },
+      }];
+
 
 //IMG Config
 //для разработки (выгружаем картинки)
@@ -226,13 +236,13 @@ const
 const
     config = {
 
-      //devtool: sourceMap,                            //выбираем тип карт
+      devtool: sourceMap,                            //выбираем тип карт
 
       entry: {
         vendor: ['jquery', 'react', 'react-dom'],   //бандел c модулями библиотек
         glob: SRC_DIR + '/js/glob/glob.js',         //бандел c модулями которые повторяються ввезде
         share: SRC_DIR + '/js/share/share.js',      //бандел с модулями которые иногда повторяються
-        index: SRC_DIR + '/js/index.html/index.js',      //бандел с модулями для конкретной страници
+        index: SRC_DIR + '/js/index.html/index.js', //бандел с модулями для конкретной страници
       },
 
       output: {
@@ -265,6 +275,12 @@ const
             test: /\.(woff|woff2|svg)$/,
             use: fontConfig,
           },
+          //SVG - используя file-loader (чтоб закешировать svg в localstarge)
+          {
+            include: path.resolve(__dirname, 'src/svg/'),
+            test: /\.(svg)$/,
+            use: svgConfig,
+          },
           //JS & JSX - Loader
           {
             include: path.resolve(__dirname, 'src/js/'), //тока папка js
@@ -277,14 +293,6 @@ const
             test: /\.(jpg|png)$/,                         //берем jpg,png файлы
             use: imgConfig,                               //подгружаем картинки / перебрасываем
           },
-
-          //SVG
-          {
-            include: path.resolve(__dirname, 'src/svg/'),         //тока папка svg
-            exclude: path.resolve(__dirname, 'src/svg/original'), //оригинал не проверяем
-            test: /\.svg$/,                                       //берем svg файлы
-            use: 'svg-sprite-loader',
-          },
         ],
       },
       //Настройки для webpack-dev-server
@@ -292,7 +300,7 @@ const
         port: 9000,                             //выбор порта
         open: true,                             //автоматически открыть окно
         inline: true,
-        stats: 'errors-only',                   //в консоль тока ошибки показывать
+        stats: 'minimal',                       //консоль тока ошибки  и обновления
       },
 
       //shortcuts
