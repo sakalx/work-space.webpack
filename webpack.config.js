@@ -226,7 +226,7 @@ const
 const
     config = {
 
-      devtool: sourceMap,                            //выбираем тип карт
+      //devtool: sourceMap,                            //выбираем тип карт
 
       entry: {
         vendor: ['jquery', 'react', 'react-dom'],   //бандел c модулями библиотек
@@ -273,17 +273,25 @@ const
           },
           //IMG используя file-loader
           {
-            include: path.resolve(__dirname, 'src/img/'), //тока папка разработки
-            test: /\.(jpg|png|svg)$/,                     //берем jpg,png,svg файлы
+            include: path.resolve(__dirname, 'src/img/'), //тока папка img
+            test: /\.(jpg|png)$/,                         //берем jpg,png файлы
             use: imgConfig,                               //подгружаем картинки / перебрасываем
+          },
+
+          //SVG
+          {
+            include: path.resolve(__dirname, 'src/svg/'),         //тока папка svg
+            exclude: path.resolve(__dirname, 'src/svg/original'), //оригинал не проверяем
+            test: /\.svg$/,                                       //берем svg файлы
+            use: 'svg-sprite-loader',
           },
         ],
       },
-
       //Настройки для webpack-dev-server
       devServer: {
         port: 9000,                             //выбор порта
         open: true,                             //автоматически открыть окно
+        inline: true,
         stats: 'errors-only',                   //в консоль тока ошибки показывать
       },
 
