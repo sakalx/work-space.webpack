@@ -64,38 +64,41 @@ Writing Modes
 ________________________________
 */
 /*TEXT SIZE=====================================================================*/
-$bxl: 7vw;
+$bxl: 5vw;
 
-$xxxl: 3.5rem; /*h1*/
+$xxxl: 2.5rem; /*h1*/
 
-$xxl: 3rem; /*h2*/
+$xxl: 2.25rem; /*h2*/
 
-$xl: 2.5rem; /*h3*/
+$xl: 2rem; /*h3*/
 
-$larg: 2rem; /*h4*/
+$larg: 1.5rem; /*h4*/
 
-$med: 1.5rem; /*h5*/
+$med: 1.25rem; /*h5*/
 
 $smal: 1rem; /*h6*/
 
-$xs: 12rem;
+$xs: .5rem;
 
-$nano: 1.5rem;
+$nano: 1px;
 
-/*@FONT-FACE===================================================================*/
-/*@font-face {
+/*@FONT-FACE=====================================
+src/font/san_diego_font.woff
+
+==============================*/
+@font-face {
     font-family: 'scratch';
     src: 
-    	url('../font/san_diego_font/san_diego_font.woff2') format('woff2'),
-        url('../font/san_diego_font/san_diego_font.woff') format('woff'),
-        url('../font/san_diego_font/san_diego_font.svg#san_diego_fontmedium') format('svg');
+    	url('~root/font/san_diego_font.woff2') format('woff2'),
+        url('~root/font/san_diego_font.woff') format('woff'),
+        url('~root/font/san_diego_font.svg#san_diego_fontmedium') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 a, h1, h2, h3, h4, span, input
 { 	font-family: scratch; }
-*/
+
 /*LETTER-SPACING================================================================*/
 .t_lsp,
 body {

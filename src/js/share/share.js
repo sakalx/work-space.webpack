@@ -1,13 +1,5 @@
-/*		Compiling Bandel Glob
- * ________________________________
- ::::::::::::::::::::::::
- Includes
- ::::::::::::::::::::::::
- */
-// globImport style
-// import 'root/style/share/share.scss';
-// Import View jsx
-import './components/jsx/share.vie.jsx';
+//Import Index.page  style sheet
+//import 'root/style/index.page/index.page.scss'
 
-// Import Controler es6
-// import './components/controler/share.controler.js'
+//Import Index.page Client (layout)
+//import './client/index.page.view.jsx'
