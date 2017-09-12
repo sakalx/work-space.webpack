@@ -96,8 +96,7 @@ const
       }
     });
 
-
-//компилируем (создаем) index.html 
+//компилируем (создаем) index.page
 const
     htmlIndex = new HtmlWebpackPlugin({
       template: path.join(__dirname, develop, 'index.html'),
@@ -239,10 +238,10 @@ const
       devtool: sourceMap,                            //выбираем тип карт
 
       entry: {
-        vendor: ['jquery', 'react', 'react-dom'],   //бандел c модулями библиотек
-        glob: SRC_DIR + '/js/glob/glob.js',         //бандел c модулями которые повторяються ввезде
-        share: SRC_DIR + '/js/share/share.js',      //бандел с модулями которые иногда повторяються
-        index: SRC_DIR + '/js/index.html/index.js', //бандел с модулями для конкретной страници
+        vendor: ['jquery', 'react', 'react-dom'],        //бандел c модулями библиотек
+        glob: SRC_DIR + '/js/glob/glob.js',              //бандел c модулями которые повторяються ввезде
+        share: SRC_DIR + '/js/share/share.js',           //бандел с модулями которые иногда повторяються
+        index: SRC_DIR + '/js/index.page/index.page.js', //бандел с модулями для конкретной страници
       },
 
       output: {
@@ -319,7 +318,7 @@ const
             cleanFolderProd,                        //удаляем для сборки
             commonsChunk,                           //кешируем модули(commons)(vendor)(webpack)
             favicons,                               //генерируем фавиконки (кешируються)
-            htmlIndex,                              //компилируем index.html
+            htmlIndex,                              //компилируем index.page
             extractCss,                             //компилируем css
             definePlugin,                           //облегчаем библиотеки
             uglifyJs,                               //уродуем js
@@ -328,7 +327,7 @@ const
           [
             //provideVendorGlob,                      //включаем библиотеки ГЛОБАЛЬНО!
             commonsChunk,                           //кешируем модули(commons)(vendor)(webpack)
-            htmlIndex,                              //компилируем index.html
+            htmlIndex,                              //компилируем index.page
             extractCss,                             //компилируем css
           ],
     };
