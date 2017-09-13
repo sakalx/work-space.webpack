@@ -238,7 +238,8 @@ const
       devtool: sourceMap,                            //выбираем тип карт
 
       entry: {
-        vendor: ['jquery', 'react', 'react-dom'],        //бандел c модулями библиотек
+        // в даной сборке присутствуют библиотеки: ['jquery', 'react', 'react-dom']
+        vendor: ['react', 'react-dom'],                  //бандел c модулями библиотек
         glob: SRC_DIR + '/js/glob/glob.js',              //бандел c модулями которые повторяються ввезде
         share: SRC_DIR + '/js/share/share.js',           //бандел с модулями которые иногда повторяються
         index: SRC_DIR + '/js/index.page/index.page.js', //бандел с модулями для конкретной страници
@@ -260,8 +261,12 @@ const
           },
           //CSS - Loader
           {
-            include: path.resolve(__dirname, 'src/style/'),//тока папка style
-            test: /\.scss$/,                               //берем sass файлы
+            include: [
+              //для етого проекте также используеться  Material Components for the Web (whole Library)
+              path.resolve(__dirname, 'node_modules/material-components-web/'),
+              path.resolve(__dirname, 'src/style/'),       //наши стили src/style/
+            ],
+            test: /\.(scss|css)$/,                         //берем sass | css файлы
             use: ExtractTextPlugin.extract({               //достаем (создаем) css файлы
               fallback: 'style-loader',                    //процес снизу в верх или справа на лево !!!
               use: cssConfig,                              //компилируем в css файлы
@@ -282,7 +287,11 @@ const
           },
           //JS & JSX - Loader
           {
-            include: path.resolve(__dirname, 'src/js/'), //тока папка js
+            include: [
+              //для етого проекте также используеться Material Components for the Web (whole Library)
+              path.resolve(__dirname, 'node_modules/material-components-web/'),
+              path.resolve(__dirname, 'src/js/'),       //наши скрипты
+            ],
             test: /\.(js|jsx)$/,                         //берем js и jsx файлы
             use: 'babel-loader',                         //конфик в package.json
           },
@@ -299,7 +308,7 @@ const
         port: 9000,                             //выбор порта
         open: true,                             //автоматически открыть окно
         inline: true,
-        stats: 'minimal',                       //консоль тока ошибки  и обновления
+        //stats: 'minimal',                       //консоль тока ошибки  и обновления
       },
 
       //shortcuts
@@ -308,6 +317,7 @@ const
       resolve: {
         alias: {
           'root': path.resolve(__dirname, develop),
+          'node_modules': path.resolve(__dirname, 'node_modules'),
         },
       },
 
