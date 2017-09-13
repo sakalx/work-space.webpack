@@ -12,6 +12,7 @@ const
 //============================================================
 // Подключение плагинов и прочего
 const
+    myDirect              = require('./direct'),                   //папки для разработки и редизу
     path                  = require('path'),                       // для работы с папками
     webpack               = require('webpack'),
     CleanWebpackPlugin    = require('clean-webpack-plugin'),       // для удаления файлов
@@ -19,13 +20,13 @@ const
     ExtractTextPlugin     = require('extract-text-webpack-plugin'),// для извлечеиня из bundel в одельный файл
     FaviconsWebpackPlugin = require('favicons-webpack-plugin');    // генератор фавикон
 
-// Папки для разработки и релизу
 const
-    production = 'dist',
-    develop    = 'src',
+    develop    = myDirect.develop,
+    production = myDirect.production;
 
-    DIST_DIR   = path.join(__dirname, production),
-    SRC_DIR    = path.join(__dirname, develop);
+const
+    SRC_DIR    = path.join(__dirname, develop),
+    DIST_DIR   = path.join(__dirname, production);
 
 
 //============================================================
@@ -264,7 +265,7 @@ const
             include: [
               //для етого проекте также используеться  Material Components for the Web (whole Library)
               path.resolve(__dirname, 'node_modules/material-components-web/'),
-              path.resolve(__dirname, 'src/style/'),       //наши стили src/style/
+              path.resolve(__dirname, `${develop}/style/`) //наши стили ../style/
             ],
             test: /\.(scss|css)$/,                         //берем sass | css файлы
             use: ExtractTextPlugin.extract({               //достаем (создаем) css файлы
@@ -275,13 +276,13 @@ const
           },
           //Font - используя file-loader
           {
-            include: path.resolve(__dirname, 'src/font/'),
+            include: path.resolve(__dirname, `${develop}/font/`),
             test: /\.(woff|woff2|svg)$/,
             use: fontConfig,
           },
           //SVG - используя file-loader (чтоб закешировать svg в localstarge)
           {
-            include: path.resolve(__dirname, 'src/svg/'),
+            include: path.resolve(__dirname, `${develop}/svg/`),
             test: /\.(svg)$/,
             use: svgConfig,
           },
@@ -290,16 +291,16 @@ const
             include: [
               //для етого проекте также используеться Material Components for the Web (whole Library)
               path.resolve(__dirname, 'node_modules/material-components-web/'),
-              path.resolve(__dirname, 'src/js/'),       //наши скрипты
+              path.resolve(__dirname, `${develop}/js/`), //наши скрипты
             ],
             test: /\.(js|jsx)$/,                         //берем js и jsx файлы
             use: 'babel-loader',                         //конфик в package.json
           },
           //IMG используя file-loader
           {
-            include: path.resolve(__dirname, 'src/img/'), //тока папка img
-            test: /\.(jpg|png)$/,                         //берем jpg,png файлы
-            use: imgConfig,                               //подгружаем картинки / перебрасываем
+            include: path.resolve(__dirname, `${develop}/img/`), //тока папка img
+            test: /\.(jpg|png)$/,                                //берем jpg,png файлы
+            use: imgConfig,                                      //подгружаем картинки / перебрасываем
           },
         ],
       },
@@ -317,7 +318,7 @@ const
       resolve: {
         alias: {
           'root': path.resolve(__dirname, develop),
-          'node_modules': path.resolve(__dirname, 'node_modules'),
+          'mdc':  path.resolve(__dirname, 'node_modules/material-components-web/dist/'),
         },
       },
 
