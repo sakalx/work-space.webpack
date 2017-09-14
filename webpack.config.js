@@ -104,7 +104,8 @@ const
       inject: 'body',
       hash: true,                       // для кеширования скриптов
       filename: 'index.html',
-      chunks: ['index', 'share', 'glob', 'vendor', 'webpack'],
+      //['index', 'share', 'glob', 'vendor', 'webpack'],
+      chunks: ['index', 'glob', 'vendor', 'webpack'],
     });
 
 
@@ -177,7 +178,7 @@ const
         loader: 'file-loader',
         options: {
           name: '[name].[ext]',
-          outputPath: 'font/'
+          outputPath: 'fonts/'
         },
       }];
 
@@ -240,16 +241,17 @@ const
 
       entry: {
         // в даной сборке присутствуют библиотеки: ['jquery', 'react', 'react-dom']
-        vendor: ['react', 'react-dom'],                  //бандел c модулями библиотек
+        vendor: ['jquery', 'react', 'react-dom'],                  //бандел c модулями библиотек
         glob: SRC_DIR + '/js/glob/glob.js',              //бандел c модулями которые повторяються ввезде
-        share: SRC_DIR + '/js/share/share.js',           //бандел с модулями которые иногда повторяються
+        //share: SRC_DIR + '/js/share/share.js',           //бандел с модулями которые иногда повторяються
         index: SRC_DIR + '/js/index.page/index.page.js', //бандел с модулями для конкретной страници
       },
 
       output: {
-        path: DIST_DIR + '/',                             //концевая папка сборки
-        filename: 'js/[name].[chunkhash].bundle.js',     //папка js с entry + hach для кеша
+        path: DIST_DIR + '/',                          //концевая папка сборки
+        filename: 'js/[name].[chunkhash].bundle.js',   //папка js с entry + hach для кеша
         sourceMapFilename: 'sourceMapFile/[file].map', //папка для source map
+        publicPath: '/'                                //фих зна зачем (анолично с css и прочими assets)
       },
 
       module: {
@@ -263,20 +265,18 @@ const
           //CSS - Loader
           {
             include: [
-              //для етого проекте также используеться  Material Components for the Web (whole Library)
-              path.resolve(__dirname, 'node_modules/material-components-web/'),
               path.resolve(__dirname, `${develop}/style/`) //наши стили ../style/
             ],
             test: /\.(scss|css)$/,                         //берем sass | css файлы
             use: ExtractTextPlugin.extract({               //достаем (создаем) css файлы
               fallback: 'style-loader',                    //процес снизу в верх или справа на лево !!!
               use: cssConfig,                              //компилируем в css файлы
-              publicPath: '../',                           //очень важно указать!!!
+              publicPath: './',                            //очень важно указать!!!
             }),
           },
           //Font - используя file-loader
           {
-            include: path.resolve(__dirname, `${develop}/font/`),
+            include: path.resolve(__dirname, `${develop}/fonts/`),
             test: /\.(woff|woff2|svg)$/,
             use: fontConfig,
           },
@@ -289,8 +289,6 @@ const
           //JS & JSX - Loader
           {
             include: [
-              //для етого проекте также используеться Material Components for the Web (whole Library)
-              path.resolve(__dirname, 'node_modules/material-components-web/'),
               path.resolve(__dirname, `${develop}/js/`), //наши скрипты
             ],
             test: /\.(js|jsx)$/,                         //берем js и jsx файлы
@@ -309,6 +307,7 @@ const
         port: 9000,                             //выбор порта
         open: true,                             //автоматически открыть окно
         inline: true,
+        historyApiFallback: true                //чтоб работал react-router-dom!!!
         //stats: 'minimal',                       //консоль тока ошибки  и обновления
       },
 
@@ -318,7 +317,6 @@ const
       resolve: {
         alias: {
           'root': path.resolve(__dirname, develop),
-          'mdc':  path.resolve(__dirname, 'node_modules/material-components-web/dist/'),
         },
       },
 
