@@ -1,5 +1,5 @@
 // Папки для разработки и релизу
-const develop      = 'src';
+const develop      = 'src_GBlessons';
 const production   = 'dist';
 
 exports.develop    = develop;

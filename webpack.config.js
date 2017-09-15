@@ -60,7 +60,7 @@ const
     cleanFolderProd = new CleanWebpackPlugin(production);
 
 
-//магия кеширования отдельно: наши модули(commons) + библиотеки(vendor) + настройки webpack
+//магия кеширования отдельно: наши модули(glob) + библиотеки(vendor) + настройки webpack
 const
     commonsChunk = new webpack.optimize.CommonsChunkPlugin({
       name: ['glob', 'vendor', 'webpack'],
@@ -251,7 +251,7 @@ const
         path: DIST_DIR + '/',                          //концевая папка сборки
         filename: 'js/[name].[chunkhash].bundle.js',   //папка js с entry + hach для кеша
         sourceMapFilename: 'sourceMapFile/[file].map', //папка для source map
-        publicPath: '/'                                //фих зна зачем (анолично с css и прочими assets)
+        publicPath: '/'
       },
 
       module: {
@@ -325,7 +325,7 @@ const
           [
             //provideVendorGlob,                      //включаем библиотеки ГЛОБАЛЬНО!
             cleanFolderProd,                        //удаляем для сборки
-            commonsChunk,                           //кешируем модули(commons)(vendor)(webpack)
+            commonsChunk,                           //кешируем модули(glob)(vendor)(webpack)
             favicons,                               //генерируем фавиконки (кешируються)
             htmlIndex,                              //компилируем index.page
             extractCss,                             //компилируем css
@@ -335,7 +335,7 @@ const
           : //плагины для develop
           [
             //provideVendorGlob,                      //включаем библиотеки ГЛОБАЛЬНО!
-            commonsChunk,                           //кешируем модули(commons)(vendor)(webpack)
+            commonsChunk,                           //кешируем модули(glob)(vendor)(webpack)
             htmlIndex,                              //компилируем index.page
             extractCss,                             //компилируем css
           ],

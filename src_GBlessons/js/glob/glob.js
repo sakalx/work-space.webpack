@@ -1,10 +1,22 @@
-//Material Components Library style
-import 'mdc/material-components-web.min.css';
+import 'root/style/glob/glob.scss'
+import $ from 'jquery';
+
+//Glob Glob Layout
+import './client/glob.Layout.jsx';
 
 
-//Material Components Library script
-import * as mdc from 'mdc/material-components-web.js';
-mdc.autoInit();
+//Glob Functional
+import F__initInputfield from './functional/input.js';
+import F__initRipples from './functional/ripples.js'
 
-//Glob functional
-//import './functional/glob.functional.js';
+F__initInputfield();
+
+$('button').click(function() {
+  F__initRipples();
+});
+
+
+$('input').hover(function() {
+  console.log('hover');
+  F__initInputfield();
+});
