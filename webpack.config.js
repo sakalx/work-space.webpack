@@ -105,7 +105,7 @@ const
       hash: true,                       // для кеширования скриптов
       filename: 'index.html',
       //['index', 'share', 'glob', 'vendor', 'webpack'],
-      chunks: ['index', 'glob', 'vendor', 'webpack'],
+      chunks: ['glob', 'vendor', 'webpack'],
     });
 
 
@@ -241,10 +241,10 @@ const
 
       entry: {
         // в даной сборке присутствуют библиотеки: ['jquery', 'react', 'react-dom']
-        vendor: ['jquery', 'react', 'react-dom'],                  //бандел c модулями библиотек
-        glob: SRC_DIR + '/js/glob/glob.js',              //бандел c модулями которые повторяються ввезде
+        vendor: ['react', 'react-dom'],               //бандел c модулями библиотек
+        glob: SRC_DIR + '/js/glob.js',                //бандел c модулями которые повторяються ввезде
         //share: SRC_DIR + '/js/share/share.js',           //бандел с модулями которые иногда повторяються
-        index: SRC_DIR + '/js/index.page/index.page.js', //бандел с модулями для конкретной страници
+        //index: SRC_DIR + '/js/index.page/index.page.js', //бандел с модулями для конкретной страници
       },
 
       output: {
