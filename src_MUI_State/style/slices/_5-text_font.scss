@@ -82,11 +82,8 @@ $xs: .5rem;
 
 $nano: 1px;
 
-/*@FONT-FACE=====================================
-src/font/san_diego_font.woff
-
-==============================*/
-@font-face {
+/*@FONT-FACE / FAMILY===========================================================*/
+/*@font-face {
     font-family: 'scratch';
     src: 
     	url('~root/font/san_diego_font.woff2') format('woff2'),
@@ -94,17 +91,13 @@ src/font/san_diego_font.woff
         url('~root/font/san_diego_font.svg#san_diego_fontmedium') format('svg');
     font-weight: normal;
     font-style: normal;
+}*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+body {
+  font-family: 'Roboto', sans-serif;
 }
-
-a, h1, h2, h3, h4, span, input
-{ 	font-family: scratch; }
 
 /*LETTER-SPACING================================================================*/
-.t_lsp,
-body {
-  letter-spacing: $nano;
-}
-
 .t_lsp-larg {
   letter-spacing: 2rem;
   font-size: $larg;
@@ -150,10 +143,6 @@ MOLECULES
 }
 
 /*TEXT-DECORATION===============================================================*/
-a {
-  text-decoration: none;
-}
-
 .t_unl {
   text-decoration: underline;
 }
@@ -164,32 +153,32 @@ a {
   font-size: $bxl;
 }
 
-h1, .t_xxxl /*text - extra extra extra large*/
+.t_xxxl /*text - extra extra extra large*/
 {
   font-size: $xxxl;
 }
 
-h2, .t_xxl /*text - extra extra large*/
+.t_xxl /*text - extra extra large*/
 {
   font-size: $xxl;
 }
 
-h3, .t_xl /*text - extra large*/
+.t_xl /*text - extra large*/
 {
   font-size: $xl;
 }
 
-h4, .t_larg /*text - large*/
+.t_larg /*text - large*/
 {
   font-size: $larg;
 }
 
-h5, .t_medium /*text - medium*/
+.t_medium /*text - medium*/
 {
   font-size: $med;
 }
 
-h6, .t_smal /*text - samll*/
+.t_smal /*text - samll*/
 {
   font-size: $smal;
 }
@@ -251,19 +240,11 @@ MOLECULES
 }
 
 /*FONT-STYLE================================================================*/
-h1, h2, h3, h4, h5, h6 {
-  font-style: normal;
-}
-
 .t_italic {
   font-style: italic;
 }
 
 /*FONT-WEIGHT================================================================*/
-h1, h2, h3, h4, h6 {
-  font-weight: normal;
-}
-
 .t_bolder {
   font-weight: bolder;
 }

@@ -50,28 +50,8 @@ for User Interface
 ________________________________
 */
 /*RESET======================================================================*/
-a, section, article, div, span, nav, ul, input, textarea {
-  box-sizing: border-box;
-}
-
-/*++++++++++++++++++++++++++++++++++++*/
 .a_pointer {
   cursor: pointer;
-}
-
-/*++++++++++++++++++++++++++++++++++++*/
-input,
-input[type="search"],
-input[type="text"],
-input[type="email"],
-textarea,
-button {
-  outline: none;
-}
-
-/*++++++++++++++++++++++++++++++++++++*/
-textarea {
-  resize: none;
 }
 
 /*ANIMATION================================================================*/
@@ -99,7 +79,7 @@ textarea {
 /*TRANSITION================================================================*/
 .a_easy /*transition ease-in-out*/
 {
-  transition: all 1.3s ease-in-out;
+  transition: all .7s ease-in-out;
 }
 
 .a_easy_sl /*transition ease-in-out slow*/
