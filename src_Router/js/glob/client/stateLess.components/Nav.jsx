@@ -19,7 +19,7 @@ const Nav = () => {
           </li>
         </ul>
         <NavLink to='/loginform'>
-          <LoginButton/>
+          Login
         </NavLink>
       </nav>
   );

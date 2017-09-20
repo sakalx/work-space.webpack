@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom';
+import { HashRouter, Route, Switch  } from 'react-router-dom'; //BrowserRouter
 
 import Nav       from './stateLess.components/Nav.jsx';
 import Home      from './stateLess.components/Home.jsx';
@@ -9,11 +9,9 @@ import About     from './stateLess.components/About.jsx';
 import LoginForm from './stateLess.components/LoginForm.jsx';
 import NotFound  from './stateLess.components/NotFound.jsx'
 
-
 class GlobLayout extends React.Component {
   render() {
     return (
-        <Router>
           <div>
             <Nav/>
             <Switch>
@@ -23,9 +21,12 @@ class GlobLayout extends React.Component {
               <Route component={NotFound}/>
             </Switch>
           </div>
-        </Router>
     )
   }
 }
 
-ReactDOM.render(<GlobLayout/>, window.document.getElementById('root'));
+ReactDOM.render(
+    <HashRouter>
+      <GlobLayout/>
+    </HashRouter>
+    , window.document.getElementById('root'));
