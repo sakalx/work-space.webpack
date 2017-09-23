@@ -242,7 +242,7 @@ const
       entry: {
         // в даной сборке присутствуют библиотеки: ['jquery', 'react', 'react-dom']
         vendor: ['react', 'react-dom'],               //бандел c модулями библиотек
-        glob: SRC_DIR + '/js/glob.js',                //бандел c модулями которые повторяються ввезде
+        glob: SRC_DIR + '/js/app/client.js',               //бандел c модулями которые повторяються ввезде
         //share: SRC_DIR + '/js/share/share.js',           //бандел с модулями которые иногда повторяються
         //index: SRC_DIR + '/js/index.page/index.page.js', //бандел с модулями для конкретной страници
       },
